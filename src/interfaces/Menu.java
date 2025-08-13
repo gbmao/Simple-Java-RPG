@@ -12,6 +12,7 @@ public class Menu {
 
     }
 
+    //TODO finish start menu
     public static void startingMenu(){
 
 //        clearConsole();
@@ -21,6 +22,7 @@ public class Menu {
 
         System.out.println("1 - Attack!  ");
         System.out.println("2 - Enter next room");
+    //TODO add inventory
 
         Scanner scanner = new Scanner(System.in);
 
@@ -35,6 +37,9 @@ public class Menu {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
+    //TODO create an "IN BATTLE" menu
+
+    //TODO create inventory menu
 }
 
 
