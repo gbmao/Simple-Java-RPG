@@ -1,47 +1,118 @@
 package interfaces;
 
+import database.GameLocations;
+
+import java.util.Scanner;
+
 public class Menu {
 
     public static void menu() {
 
-        for (int row = 1; row <= 25; row++) {
+        startingMenu();
 
-            for (int column = 1; column <= 100; column++) {
+    }
 
-                String barra = "|";
-                // print superior and inferior border
-                if (row == 1 || row == 25) {
-                    System.out.print("-");
-                } else
+    public static void startingMenu(){
 
-                    //print lateral border
-                    if (column == 1 || column == 100) {
+//        clearConsole();
 
-                        // metodo de digitar  algo: rowText deve ser inserido aqui
-                        // inserido dentro de if para evitar repetir a barra 2x
-                        if (!rowText(column, row, 20)) {
-                            System.out.printf("%-100s", barra); // ajustar tamanho para se adequar a uma nova criacao de uma barra lateral
-                        }
-                    }
+        System.out.println(GameLocations.roomDescription());
+        System.out.println("You see the enemy");// you see an enemy
 
-            }
+        System.out.println("1 - Attack!  ");
+        System.out.println("2 - Enter next room");
 
-            System.out.println();
+        Scanner scanner = new Scanner(System.in);
 
+        switch (scanner.nextInt()){
+
+            case 1 -> System.out.println("Not implemented yet");
+            case 2 -> startingMenu();
         }
 
     }
-    //boolean para evitar repeticao com o codigo que cria as barras laterais.
-    // algum metodo melhor???
-    public static boolean rowText(int column, int row, int rowTarget) {
-
-        if (column == 1 && row == rowTarget) {
-            System.out.print("| ");
-            System.out.printf("%-98s", "testando o metodo de digitao"); // cuidado para nao consumir espaco alem do possivel
-            return true;
-        }
-        return false;
+    public static void clearConsole() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//        for (int row = 1; row <= 25; row++) {
+//
+//            for (int column = 1; column <= 100; column++) {
+//
+//                String barra = "|";
+//                // print superior and inferior border
+//                if (row == 1 || row == 25) {
+//                    System.out.print("-");
+//                } else if (column == 1) {
+//                    System.out.print("|");
+//
+//                }
+//                else if (column == 70) {
+//
+//                    System.out.print("|");
+//
+//                } else if (column == 100) {
+//
+//
+//                    System.out.print("|");
+//                } else {
+//
+//                    System.out.print(" ");
+//                }
+//
+//
+//
+//
+//
+//
+//
+//                //print lateral border
+////                    if (column == 1 || column == 100) {
+////
+////                        // metodo de digitar  algo: rowText deve ser inserido aqui
+////                        // inserido dentro de if para evitar repetir a barra 2x
+////                        if (!rowText(column, row, 10, "text")) {
+////
+////                            System.out.printf("%-70s",  barra); //TODO ajustar tamanho para se adequar a uma nova criacao de uma barra lateral
+//////                            System.out.printf( barra); //TODO ajustar tamanho para se adequar a uma nova criacao de uma barra lateral
+////                        }
+////                    }
+//
+//
+//            }
+//
+//            System.out.println();
+//
+//        }
+//
+//    }
+//
+//    //boolean para evitar repeticao com o codigo que cria as barras laterais.
+//    // algum metodo melhor???
+//    //TODO inserir texto atraves de uma variavel String
+//    // checar quantidade maxima de character na string para quebrar antes de extrapolar
+//    public static boolean rowText(int column, int row, int rowTarget, String text) {
+//
+//        if (column == 1 && row == rowTarget) {
+////            System.out.print("| ");
+//            System.out.printf("%-66s", text); // cuidado para nao consumir espaco alem do possivel
+//            return true;
+//        }
+//        return false;
+//    }
