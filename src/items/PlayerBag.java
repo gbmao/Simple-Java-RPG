@@ -3,7 +3,9 @@ package items;
 import java.util.ArrayList;
 import java.util.List;
 
-//it is possible to connect playerBag with items?
+//TODO recriate bag to something simple
+// something that just keep a simple counting++ ?????
+
 public class PlayerBag {
     private static  List<Items> item;
 
