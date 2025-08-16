@@ -3,23 +3,40 @@ package items;
 import java.util.ArrayList;
 import java.util.List;
 
-//TODO recriate bag to something simple
-// something that just keep a simple counting++ ?????
-
 public class PlayerBag {
-    private static  List<Items> item;
+
+    private int hpPotionCount;
+    private int poisonPotionCount;
 
     public PlayerBag(){
-        item = new ArrayList<>();
+        this(0, 0);
     }
 
-
-
-    public static void addItem(Items items){
-        item.add(items);
+    public PlayerBag(int hpPotionCount, int poisonPotionCount) {
+        this.hpPotionCount = hpPotionCount;
+        this.poisonPotionCount = poisonPotionCount;
     }
-    public List<Items> getItems() {
-        return item;
+
+    public int getHpPotionCount() {
+        return hpPotionCount;
     }
+
+    public void setHpPotionCount(int hpPotionCount) {
+        this.hpPotionCount = hpPotionCount;
+    }
+
+    public int getPoisonPotionCount() {
+        return poisonPotionCount;
+    }
+
+    public void setPoisonPotionCount(int poisonPotionCount) {
+        this.poisonPotionCount = poisonPotionCount;
+    }
+
+    //QUESTION: Should improve the bag?
+    // creating bag here for now
+    //isolate bag in another class if decide for improvement
+
+    public static PlayerBag bag = new PlayerBag();
 
 }
