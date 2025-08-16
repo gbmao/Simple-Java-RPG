@@ -1,16 +1,20 @@
 package characters;
+//TODO refactor to a cleaner code
+//TODO create a method for raising HP and  damage as level up
 
 public class Player {
 
     private String name;
     private int level;
     private int health;
-    private String damage;
+    private int damage;
     private int xp;
 
+    public Player(){
+        this("AAA", 0, 10, 2, 0);
+    }
 
-
-     public Player(String name, int level, int health, String damage, int xp){
+     public Player(String name, int level, int health, int damage, int xp){
          this.name = name;
          this.level = level;
          this.health = health;
@@ -18,7 +22,7 @@ public class Player {
          this.xp = xp;
      }
 
-    public String getDamage() {
+    public int getDamage() {
         return damage;
     }
 
@@ -55,19 +59,23 @@ public class Player {
         int xpToLeveling = getLevel() * 10 + 100;
         if(getXp() > xpToLeveling){
 
-            setLevel(getLevel() + 1 );
+            addLevel( 1 );
             // call setXp with exceeding xp
             int exceedingXp = getXp() - xpToLeveling;
             if(exceedingXp > 0){
                 setXp(exceedingXp);
             }
+            //TODO a better way to show the level up msg
+            //TODO show how much xp needed for leveling
+            System.out.println("Voce upou e tem : " + exceedingXp + " de xp");
         }
 
 
     }
 
-    public void setLevel(int level){
+    public void addLevel(int level){
 
+        this.level += level;
 
     }
 
