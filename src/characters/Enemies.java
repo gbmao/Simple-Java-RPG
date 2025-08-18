@@ -4,11 +4,13 @@ public class Enemies {
     private String enemyType;
     private int health;
     private int atackDamage;
+    private int xp;
 
-    public Enemies(String enemyType, int health,int atackDamage){
+    public Enemies(String enemyType, int health,int atackDamage, int xp){
         this.enemyType = enemyType;
         this.health = health;
         this.atackDamage = atackDamage;
+        this.xp = xp;
     }
 
     public String GetEnemyType(){ return enemyType; }
@@ -27,8 +29,10 @@ public class Enemies {
         this.health = health;
     }
 
-    // Enemies() {enemyType = "Slime"; health = 4; atackDamage = 1;};
+    public void EnemyAtack(){
 
+
+    }
 
 
 }
