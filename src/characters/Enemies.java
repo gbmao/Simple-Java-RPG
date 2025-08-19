@@ -16,15 +16,15 @@ public class Enemies {
         this.xp = xp;
     }
 
-    public String GetEnemyType() {
+    public String getEnemyType() {
         return enemyType;
     }
 
-    public int GetHealth() {
+    public int getHealth() {
         return health;
     }
 
-    public int GetAttackDamage() {
+    public int getAttackDamage() {
         return attackDamage;
     }
 
@@ -44,10 +44,6 @@ public class Enemies {
         this.health = health;
     }
 
-    public void EnemyAttack() {
-
-
-    }
 
 
 }
