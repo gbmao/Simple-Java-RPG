@@ -1,21 +1,30 @@
 package interfaces;
 
+import characters.Enemies;
+import characters.Player;
+import database.GameEnemies;
 import database.GameLocations;
+import items.PlayerBag;
+import locations.Locations;
 
 import java.util.Scanner;
 
 public class Menu {
 
-    public static void menu() {
+    Enemies enemy1 = new Enemies();
+    Enemies enemy2 = new Enemies();
+
+    public  void menu() {
 
         startingMenu();
 
     }
-
+    Player player = new Player();
     //TODO finish start menu
-    public static void startingMenu(){
+    //TODO i should create the instances here(enemies, players and rooms)
+    public  void startingMenu(){
 
-//        clearConsole();
+
 
         System.out.println(GameLocations.roomDescription());
         System.out.println("You see the enemy");// you see an enemy
@@ -28,17 +37,39 @@ public class Menu {
 
         switch (scanner.nextInt()){
 
-            case 1 -> System.out.println("Not implemented yet");
+            case 1 -> battleMenu(player.getLevel(), Locations.getTotalRooms());
             case 2 -> startingMenu();
+            case 3 -> System.out.println("HP Potion: " + PlayerBag.bag.getHpPotionCount() + "\tPoison potion: " + PlayerBag.bag.getPoisonPotionCount());
         }
 
     }
-    public static void clearConsole() {
+    public  void clearConsole() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
     //TODO create an "IN BATTLE" menu
 
+    public  void battleMenu(int playerLevel, int roomNumber){
+
+        enemiesGeneration(playerLevel, roomNumber);
+        System.out.println("You are facing an " + enemy1.getEnemyType());
+    }
+
+    public Enemies enemiesGeneration(int playerLevel, int roomNumber){
+
+        if(roomNumber == 10){
+            return enemy1 = new Enemies("Giant Spider", 12, 4, 150);
+        }
+
+        if(playerLevel < 3){
+           return  enemy1 = new Enemies("Slime", 5, 1, 30);
+        } else if (playerLevel <5) {
+            return enemy1 = new Enemies("Skeleton Warrior", 7, 3, 60);
+        } else{
+            return enemy1 = new Enemies("Skeleton Archer", 4, 4, 70);
+        }
+
+    }
     //TODO create inventory menu
 }
 
