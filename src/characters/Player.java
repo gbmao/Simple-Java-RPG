@@ -1,6 +1,5 @@
 package characters;
-//TODO refactor to a cleaner code
-//TODO create a method for raising HP and  damage as level up
+
 
 public class Player {
 
@@ -47,6 +46,10 @@ public class Player {
         return level;
     }
 
+    public boolean isAlive() {
+        return isAlive;
+    }
+
     public int getHealth() {
         return health;
     }
@@ -78,10 +81,12 @@ public class Player {
             if (exceedingXp > 0) {
                 setXp(exceedingXp);
             }
-            //TODO a better way to show the level up msg
-            //TODO show how much xp needed for leveling
-            System.out.println("Voce upou e tem : " + exceedingXp + " de xp");
+
+            System.out.println("***LEVEL UP*** \n" +
+                    "You're lvl: " + getLevel() +
+                    " need " + (getXp() - xpToLeveling) + " to next level");
         }
+
 
 
     }

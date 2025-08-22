@@ -42,8 +42,8 @@ public class Enemies {
         this.enemyType = enemyType;
     }
 
-    public void setAttackDamage(int atackDamage) {
-        this.attackDamage = atackDamage;
+    public void setAttackDamage(int attackDamage) {
+        this.attackDamage = attackDamage;
     }
 
     public void setHealth(int health) {
