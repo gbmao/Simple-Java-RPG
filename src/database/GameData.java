@@ -3,7 +3,11 @@ package database;
 import locations.Locations;
 import utils.Utils;
 
-public class GameLocations {
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class GameData {
 
 
 //TODO create array (or list) to store random texts to describe the rooms(with more life)
@@ -42,6 +46,26 @@ public class GameLocations {
             case 3 -> " golden";
             default -> " simple";
         };
+    }
+    //place to populate all the input
+    public static List<String> create() {
+
+        List<String> initialChoices = new ArrayList<>();
+
+        initialChoices.add("- Attack!  ");
+        initialChoices.add("- Enter next room");
+        return initialChoices;
+    }
+
+    public static List<String> battleOptions(){
+
+        List<String> battleOptions = new ArrayList<>();
+
+        battleOptions.add("- Attack!!!");
+        battleOptions.add("Magic(not implemented)");
+        battleOptions.add("Use Item(not implemented");
+        battleOptions.add("RUN(not implemented)");
+        return battleOptions;
     }
 }
 
