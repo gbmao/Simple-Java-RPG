@@ -6,11 +6,11 @@ import utils.Utils;
 public class GameLocations {
 
 
-
+//TODO create array (or list) to store random texts to describe the rooms(with more life)
     public static String roomDescription() {
 
         Locations room = new Locations(name(), light(), size());
-        return "You entered an " + room.getName() + room.getLight() + room.getSize();
+        return "You entered an " + room.getName()+ room.getSize() + room.getLight() ;
     }
 
 
