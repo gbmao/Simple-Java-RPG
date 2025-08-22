@@ -2,6 +2,8 @@ package interfaces;
 
 import characters.Enemies;
 import characters.Player;
+import database.GameData;
+import jdk.jshell.execution.Util;
 import locations.Locations;
 import utils.Utils;
 
@@ -30,19 +32,15 @@ public class BattleMenu {
     }
 
     public static boolean battleMenu(Enemies enemies) {
-        Scanner scanner = new Scanner(System.in);
 
         System.out.println("You're facing an " + enemies.getEnemyType() + " with " + enemies.getHealth() + " HP");
         System.out.println("You have : " + Player.player1.getHealth() + " HP");
         System.out.println("What you want to do?\n");
 
-        System.out.println("1.Attack");
-        System.out.println("2.Magic(not implemented)");
-        System.out.println("3.Use Item(not implemented");
-        System.out.println("4.RUN(not implemented)");
 
 
-        switch (scanner.nextInt()) {
+
+        switch (Menu.inputMenu(GameData.battleOptions())) {
             case 1: return attackTurn(enemies);
 
             case 2:
