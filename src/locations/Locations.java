@@ -29,6 +29,10 @@ public class Locations {
     public void setSize(String size){
         this.size = size;
     }
+
+    public static int getTotalRooms() {
+        return totalRooms;
+    }
 }
 
 
