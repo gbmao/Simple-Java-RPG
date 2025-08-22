@@ -5,6 +5,7 @@ public class Enemies {
     private int health;
     private int attackDamage;
     private int xp;
+    protected boolean isAlive;
 
     public Enemies() {
     }
@@ -14,6 +15,11 @@ public class Enemies {
         this.health = health;
         this.attackDamage = attackDamage;
         this.xp = xp;
+        isAlive = true;
+    }
+
+    public boolean isAlive() {
+        return isAlive;
     }
 
     public String getEnemyType() {
@@ -45,5 +51,13 @@ public class Enemies {
     }
 
 
+    public void tookDamage(int damageTaken){
+        int newHealth = getHealth() - damageTaken;
+        if(newHealth <= 0) {
+            isAlive = false;
+            System.out.println(getEnemyType() + " DIED!");
+        }
+        setHealth(newHealth);
+    }
 
 }
