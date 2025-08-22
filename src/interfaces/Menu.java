@@ -11,19 +11,17 @@ import java.util.Scanner;
 
 public class Menu {
 
-    Enemies enemy1 = new Enemies();
-    Enemies enemy2 = new Enemies();
 
-    public  void menu() {
+
+    public void menu() {
 
         startingMenu();
 
     }
-    Player player = new Player();
-    //TODO finish start menu
-    //TODO i should create the instances here(enemies, players and rooms)
-    public  void startingMenu(){
 
+    //TODO finish start menu
+
+    public void startingMenu() {
 
 
         System.out.println(GameLocations.roomDescription());
@@ -31,60 +29,33 @@ public class Menu {
 
         System.out.println("1 - Attack!  ");
         System.out.println("2 - Enter next room");
-    //TODO add inventory
+        //TODO add inventory
 
         Scanner scanner = new Scanner(System.in);
 
-        switch (scanner.nextInt()){
+        switch (scanner.nextInt()) {
 
-            case 1 -> battleMenu(player.getLevel(), Locations.getTotalRooms());
+            case 1 -> {
+                System.out.println(BattleMenu.battleStart());
+                startingMenu();
+            }
             case 2 -> startingMenu();
-            case 3 -> System.out.println("HP Potion: " + PlayerBag.bag.getHpPotionCount() + "\tPoison potion: " + PlayerBag.bag.getPoisonPotionCount());
+            case 3 ->
+                    System.out.println("HP Potion: " + PlayerBag.bag.getHpPotionCount() + "\tPoison potion: " + PlayerBag.bag.getPoisonPotionCount());
         }
-
     }
-    public  void clearConsole() {
+
+    public void clearConsole() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
-    //TODO create an "IN BATTLE" menu
 
-    public  void battleMenu(int playerLevel, int roomNumber){
 
-        enemiesGeneration(playerLevel, roomNumber);
-        System.out.println("You are facing an " + enemy1.getEnemyType());
+
+    public void inventory(){
+        //TODO create a new class to manage the inventory
     }
-
-    public Enemies enemiesGeneration(int playerLevel, int roomNumber){
-
-        if(roomNumber == 10){
-            return enemy1 = new Enemies("Giant Spider", 12, 4, 150);
-        }
-
-        if(playerLevel < 3){
-           return  enemy1 = new Enemies("Slime", 5, 1, 30);
-        } else if (playerLevel <5) {
-            return enemy1 = new Enemies("Skeleton Warrior", 7, 3, 60);
-        } else{
-            return enemy1 = new Enemies("Skeleton Archer", 4, 4, 70);
-        }
-
-    }
-    //TODO create inventory menu
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //        for (int row = 1; row <= 25; row++) {
@@ -119,16 +90,16 @@ public class Menu {
 //
 //
 //                //print lateral border
-////                    if (column == 1 || column == 100) {
-////
-////                        // metodo de digitar  algo: rowText deve ser inserido aqui
-////                        // inserido dentro de if para evitar repetir a barra 2x
-////                        if (!rowText(column, row, 10, "text")) {
-////
-////                            System.out.printf("%-70s",  barra); //TODO ajustar tamanho para se adequar a uma nova criacao de uma barra lateral
-//////                            System.out.printf( barra); //TODO ajustar tamanho para se adequar a uma nova criacao de uma barra lateral
-////                        }
-////                    }
+/// /                    if (column == 1 || column == 100) {
+/// /
+/// /                        // metodo de digitar  algo: rowText deve ser inserido aqui
+/// /                        // inserido dentro de if para evitar repetir a barra 2x
+/// /                        if (!rowText(column, row, 10, "text")) {
+/// /
+/// /                            System.out.printf("%-70s",  barra); //TODO ajustar tamanho para se adequar a uma nova criacao de uma barra lateral
+/// ///                            System.out.printf( barra); //TODO ajustar tamanho para se adequar a uma nova criacao de uma barra lateral
+/// /                        }
+/// /                    }
 //
 //
 //            }
