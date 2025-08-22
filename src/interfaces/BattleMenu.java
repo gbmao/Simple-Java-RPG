@@ -20,12 +20,14 @@ public class BattleMenu {
         // call for a BattleMenu( with options)
         boolean battleIsOver = false;
         do {
-            battleMenu(enemy1);
+           battleIsOver = battleMenu(enemy1);
 
         } while (!battleIsOver);
+        //TODO battle over msg and xp calculation
+        System.out.println("The battle is over!");
     }
 
-    public static void battleMenu(Enemies enemies) {
+    public static boolean battleMenu(Enemies enemies) {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("You're facing an " + enemies.getEnemyType() + " with " + enemies.getHealth());
@@ -40,8 +42,10 @@ public class BattleMenu {
 
         switch (scanner.nextInt()) {
             case 1:
-                Player.player1.playerAttack(enemies);
-//                System.out.println(enemies.getEnemyType() + " has " + enemies.getHealth());
+                enemies.tookDamage(Player.player1.getDamage());
+                if(!enemies.isAlive()){
+                    return true;
+                }
                 break;
             case 2:
                 System.out.println("2.Magic(not implemented)");
@@ -57,6 +61,7 @@ public class BattleMenu {
                 break;
         }
 
+        return false;
         //enemy attacks
     }
 
