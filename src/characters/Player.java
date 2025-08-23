@@ -1,6 +1,9 @@
 package characters;
 
 
+import database.GameItems;
+import items.HealingPotions;
+
 public class Player {
 
     private String name;
@@ -9,20 +12,22 @@ public class Player {
     private int damage;
     private int xp;
     protected boolean isAlive;
+    private int maximumHealth;
 
-    public static Player player1 = new Player("AAA", 1, 10, 2, 0);
+    public static Player player1 = new Player("AAA", 1, 10, 2, 0, 10);
 
     public Player() {
 //        this("AAA", 1, 10, 2, 0);
     }
 
-    public Player(String name, int level, int health, int damage, int xp) {
+    public Player(String name, int level, int health, int damage, int xp, int maximumHealth) {
         this.name = name;
         this.level = level;
         this.health = health;
         this.damage = damage;
         this.xp = xp;
         isAlive = true;
+        this.maximumHealth = maximumHealth;
     }
 
     public int getDamage() {
@@ -35,6 +40,10 @@ public class Player {
 
     public String getName() {
         return name;
+    }
+
+    public int getMaximumHealth() {
+        return maximumHealth;
     }
 
     /**
@@ -94,7 +103,7 @@ public class Player {
     public void addLevel(int level) {
 
         this.level += level;
-        this.health += 1;
+        this.maximumHealth += 1;
         if (level % 2 == 0) {
             this.damage += 1;
         }
@@ -111,6 +120,13 @@ public class Player {
         }
         setHealth(newHealth);
     }
+
+    public void heal(HealingPotions healingPotions){
+
+        int newHp = getHealth() + healingPotions.getAmountHealed();
+        setHealth(Math.min(newHp, getMaximumHealth()));
+    }
+
 
 }
 
