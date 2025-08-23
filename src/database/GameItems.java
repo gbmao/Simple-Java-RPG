@@ -28,5 +28,9 @@ public class GameItems {
 
         int current = inventory.getOrDefault(item, 0);
         inventory.put(item, Math.max(current - amount, 0));
+        if(inventory.getOrDefault(item, 0) == 0){
+            inventory.remove(item);
+        }
+
     }
 }
