@@ -1,8 +1,7 @@
 package interfaces;
 
 import database.GameData;
-import items.PlayerBag;
-import utils.Utils;
+
 
 import java.util.InputMismatchException;
 import java.util.List;
@@ -30,16 +29,16 @@ public class Menu {
         //TODO add inventory
 
 
-        switch (inputMenu(GameData.create())) {
+        switch (inputMenu(GameData.roomChoices())) {
 
             case 1 -> {
                 System.out.println(BattleMenu.battleStart());
                 startingMenu();
             }
             case 2 -> startingMenu();
-            case 3 ->
-                    System.out.println("HP Potion: " + PlayerBag.bag.getHpPotionCount() + "\tPoison potion: " + PlayerBag.bag.getPoisonPotionCount());
-        }
+
+
+            }
     }
 
     /**
@@ -80,6 +79,7 @@ public class Menu {
 
     public void inventory() {
         //TODO create a new class to manage the inventory
+
     }
 }
 

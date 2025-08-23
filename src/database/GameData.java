@@ -1,20 +1,23 @@
 package database;
 
+import characters.Player;
+import items.Items;
 import locations.Locations;
 import utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 
 public class GameData {
 
 
-//TODO create array (or list) to store random texts to describe the rooms(with more life)
+    //TODO create array (or list) to store random texts to describe the rooms(with more life)
     public static String roomDescription() {
 
         Locations room = new Locations(name(), light(), size());
-        return "You entered an " + room.getName()+ room.getSize() + room.getLight() ;
+        return "You entered an " + room.getName() + room.getSize() + room.getLight();
     }
 
 
@@ -47,8 +50,9 @@ public class GameData {
             default -> " simple";
         };
     }
+
     //place to populate all the input
-    public static List<String> create() {
+    public static List<String> roomChoices() {
 
         List<String> initialChoices = new ArrayList<>();
 
@@ -57,16 +61,40 @@ public class GameData {
         return initialChoices;
     }
 
-    public static List<String> battleOptions(){
+    public static List<String> battleChoices() {
 
-        List<String> battleOptions = new ArrayList<>();
+        List<String> battleChoices = new ArrayList<>();
 
-        battleOptions.add("- Attack!!!");
-        battleOptions.add("Magic(not implemented)");
-        battleOptions.add("Use Item(not implemented");
-        battleOptions.add("RUN(not implemented)");
-        return battleOptions;
+        battleChoices.add("- Attack!!!");
+        battleChoices.add("Magic(not implemented)");
+        battleChoices.add("Use Item(not implemented");
+        battleChoices.add("RUN(not implemented)");
+        return battleChoices;
     }
+
+    public static List<String> InventoryChoices(Map<Items, Integer> map) {
+
+        String item = "";
+
+        List<String> inventoryChoices = new ArrayList<>();
+        for (Map.Entry<Items, Integer> entry : map.entrySet()) {
+            item = entry.getKey().getName() + " x" + entry.getValue();
+            inventoryChoices.add(item);
+        }
+        return inventoryChoices;
+    }
+
+    public static void showInventory(Map<Items, Integer> map) {
+        System.out.println("-".repeat(10));
+        System.out.println(Player.player1.getName() + " Inventory ");
+
+        for (Map.Entry<Items, Integer> entry : map.entrySet()) {
+
+            System.out.println(entry.getKey().getName() + " x" + entry.getValue());
+        }
+        System.out.println("-".repeat(10));
+    }
+
 }
 
 // create

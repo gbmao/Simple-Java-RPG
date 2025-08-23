@@ -1,16 +1,30 @@
-import characters.Enemies;
-import characters.Player;
+import database.GameData;
+import database.GameItems;
+import interfaces.Menu;
 import utils.Utils;
 
 public class Game {
     public static void main(String[] args) {
-        Player p1 = new Player("boris", 1, 10);
-        Enemies slime = new Enemies("Slime", 5, 2);
-        System.out.println("Player: " + p1.getName() + " is " + " level " + p1.getLevel() + " and has " + p1.getHealth() + " health.");
-        System.out.println("Damage: " + Utils.RNG(8, 10));
-        int damage = Utils.RNG(1, 5);
-        slime.setHealth(slime.GetHealth() - damage);
-        System.out.println("slime took " + damage + " Damage! Health:" + slime.GetHealth()   );
+
+
+//        Utils.initialChoices.add("teste");
+
+//        Menu menu = new Menu();
+//
+//        menu.menu();
+
+        GameItems.addItem(GameItems.hpPotion, 5);
+        GameData.showInventory(GameItems.inventory);
+        GameItems.addItem(GameItems.hpPotion, 1);
+        GameItems.addItem(GameItems.poisonPotion, 3);
+        GameData.showInventory(GameItems.inventory);
+
+        GameItems.removeItem(GameItems.hpPotion, 2);
+        GameItems.removeItem(GameItems.poisonPotion, 5);
+        GameData.showInventory(GameItems.inventory);
+
+
+
     }
 
 }

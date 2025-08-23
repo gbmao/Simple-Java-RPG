@@ -3,12 +3,10 @@ package interfaces;
 import characters.Enemies;
 import characters.Player;
 import database.GameData;
-import jdk.jshell.execution.Util;
+import database.GameItems;
+import items.Items;
 import locations.Locations;
 import utils.Utils;
-
-import java.sql.SQLOutput;
-import java.util.Scanner;
 
 public class BattleMenu {
 
@@ -40,7 +38,7 @@ public class BattleMenu {
 
 
 
-        switch (Menu.inputMenu(GameData.battleOptions())) {
+        switch (Menu.inputMenu(GameData.battleChoices())) {
             case 1: return attackTurn(enemies);
 
             case 2:
