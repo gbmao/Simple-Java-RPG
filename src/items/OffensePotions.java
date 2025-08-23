@@ -1,0 +1,20 @@
+package items;
+
+public class OffensePotions extends Items {
+    private int damage;
+
+    public OffensePotions(String name, String description, int damage) {
+        super(name, description);
+        this.damage = damage;
+    }
+
+    public int getDamage() {
+        return damage;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                " " + damage +" Health damage";
+    }
+}
