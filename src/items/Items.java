@@ -3,13 +3,11 @@ package items;
 public class Items {
     private String name;
     private String description;
-    private int point;
 
     //constructor
-    public Items(String name, String description, int point ){
+    public Items(String name, String description ){
         this.name = name;
         this.description = description;
-        this.point = point;
     }
 
     //getters
@@ -23,10 +21,6 @@ public class Items {
         return description;
     }
 
-    public int getPoint() {
-        return point;
-    }
-
     //setters
 
 
@@ -38,9 +32,12 @@ public class Items {
         this.name = name;
     }
 
-    public void setPoint(int point) {
-        this.point = point;
+    @Override
+    public String toString() {
+        return "Items{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
-
 }
 
