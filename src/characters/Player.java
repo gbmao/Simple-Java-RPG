@@ -3,6 +3,7 @@ package characters;
 
 import database.GameItems;
 import items.HealingPotions;
+import items.OffensePotions;
 
 public class Player {
 
@@ -127,6 +128,15 @@ public class Player {
         setHealth(Math.min(newHp, getMaximumHealth()));
     }
 
+    public void tookDamage(OffensePotions offensePotions){
 
+        int newHealth = getHealth() - offensePotions.getDamage();
+        if(newHealth <= 0) {
+            isAlive = false;
+            System.out.println(getName() + " DIED!");
+        }
+        setHealth(newHealth);
+
+    }
 }
 
