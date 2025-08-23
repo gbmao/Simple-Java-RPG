@@ -1,15 +1,17 @@
 package database;
 
+import items.HealingPotions;
 import items.Items;
+import items.OffensePotions;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class GameItems {
-    public static Items hpPotion = new Items("hp", "Restore 2 Health Points", 2);
-    public static Items poisonPotion = new Items("Poison potion", "Imbues your weapon with poison", 1);
+    public static HealingPotions hpPotion = new HealingPotions("Small health potion",
+            "Restore ", 5);
+    public static OffensePotions poisonPotion = new OffensePotions("Poison potion",
+            "Imbues your weapon with poison", 2);
 
 
     //    public static List<Items> inventory = new ArrayList<>();

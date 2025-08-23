@@ -1,6 +1,8 @@
+import characters.Player;
 import database.GameData;
 import database.GameItems;
 import interfaces.Menu;
+import items.HealingPotions;
 import utils.Utils;
 
 public class Game {
@@ -23,7 +25,17 @@ public class Game {
         GameItems.removeItem(GameItems.poisonPotion, 5);
         GameData.showInventory(GameItems.inventory);
 
+        String teste = GameItems.hpPotion.toString();
+        System.out.println(teste);
 
+        System.out.println("total hp: " + Player.player1.getHealth() + " max hp  " + Player.player1.getMaximumHealth());
+        Player.player1.tookDamage(6);
+        System.out.println("total hp: " + Player.player1.getHealth() + " max hp  " + Player.player1.getMaximumHealth());
+        Player.player1.heal(GameItems.hpPotion);
+        System.out.println("total hp: " + Player.player1.getHealth() + " max hp  " + Player.player1.getMaximumHealth());
+        Player.player1.heal(GameItems.hpPotion);
+        Player.player1.heal(GameItems.hpPotion);
+        System.out.println("total hp: " + Player.player1.getHealth() + " max hp  " + Player.player1.getMaximumHealth());
 
     }
 
