@@ -23,7 +23,7 @@ public class GameData {
 
     public static String size() {
 
-        return switch (Utils.RNG(1, 3)) {
+        return switch ((int)(Math.random() * 10)) {
             case 1 -> " big room";
             case 2 -> " small room";
             case 3 -> " strange room";
@@ -33,7 +33,7 @@ public class GameData {
 
     public static String light() {
 
-        return switch (Utils.RNG(1, 3)) {
+        return switch ((int)(Math.random() * 10)) {
             case 1 -> " with the sun light coming from a little window";
             case 2 -> " with a simple torch lighting the place.";
             case 3 -> " with some lifted candles";
@@ -43,7 +43,7 @@ public class GameData {
 
     public static String name() {
 
-        return switch (Utils.RNG(1, 3)) {
+        return switch ((int)(Math.random() * 10)) {
             case 1 -> " strange";
             case 2 -> " mysterious";
             case 3 -> " golden";

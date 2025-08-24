@@ -2,16 +2,23 @@ package utils;
 
 import characters.Enemies;
 
+import database.GameItems;
+import items.HealingPotions;
+import items.Items;
+
 import java.util.Random;
 
 public class Utils {
 
+    /**
+     * @param chance insert the % you want in double(ie: 0.8 == 80%)
+     */
+    public static boolean RNG(double chance) {
 
-    public static int RNG(int min, int max) {
-        Random random = new Random();
-        return random.nextInt(max - min) + min;
+        return (chance <= Math.random());
         //return number;
     }
+
 
     public static Enemies enemiesGeneration(int playerLevel, int roomNumber) {
 
@@ -20,7 +27,7 @@ public class Utils {
         }
 
         if (playerLevel < 3) {
-            return new Enemies("Slime", 5, 1, 30);
+            return null;
         } else if (playerLevel < 5) {
             return new Enemies("Skeleton Warrior", 7, 3, 60);
         } else {
