@@ -1,10 +1,8 @@
 package interfaces;
-
 import characters.Enemies;
 import characters.Player;
 import database.GameData;
 import database.GameItems;
-import items.Items;
 import locations.Locations;
 import utils.Utils;
 
@@ -15,7 +13,8 @@ public class BattleMenu {
         //iniciate enemies
 
         Enemies enemy1 = Utils.enemiesGeneration(Player.player1.getLevel(), Locations.getTotalRooms());
-
+//        Enemies enemy1 = Npc.first;
+//        CombatGroup combatGroup = new CombatGroup(true);
         // describe what player see
         // call for a BattleMenu( with options)
         boolean battleIsOver = false;
@@ -25,12 +24,13 @@ public class BattleMenu {
         } while (!battleIsOver);
 
         battleOver(enemy1);
-
+        GameData.showInventory(GameItems.inventory);
+        Player.player1.addXp(enemy1.getXp());
         return "\n\n You walk away from the dead enemy towards a new room\n\n ";
     }
 
     public static boolean battleMenu(Enemies enemies) {
-
+        System.out.println("-".repeat(10));
         System.out.println("You're facing an " + enemies.getEnemyType() + " with " + enemies.getHealth() + " HP");
         System.out.println("You have : " + Player.player1.getHealth() + " HP");
         System.out.println("What you want to do?\n");
@@ -61,14 +61,11 @@ public class BattleMenu {
 
     public static boolean attackTurn(Enemies enemies){
 
-        System.out.println(Player.player1.getName() + " ATTACKS! " );
-        System.out.println(enemies.getEnemyType() + " took " + Player.player1.getDamage() + " damage\n");
-        enemies.tookDamage(Player.player1.getDamage());
+        enemies.tookDamage(Player.player1.attack());
         if(!enemies.isAlive()) return true;
 
-        System.out.println(enemies.getEnemyType() + " ATTACKS! " );
-        System.out.println(Player.player1.getName() + " took " + enemies.getAttackDamage()  + " damage\n");
-        Player.player1.tookDamage(enemies.getAttackDamage());
+        Player.player1.tookDamage(enemies.whatToDo());
+
         if (!Player.player1.isAlive()) return true;
         return false;
     }
@@ -80,6 +77,8 @@ public class BattleMenu {
             System.out.println(enemies.getEnemyType() + " Died and gave : " +
                     enemies.getXp() + " XP");
             Player.player1.addXp(enemies.getXp());
+            enemies.dropItem();
+
         } else if (!Player.player1.isAlive()) {
             System.out.println("YOU DIED");
 
