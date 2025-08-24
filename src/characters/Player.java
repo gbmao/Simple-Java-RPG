@@ -15,7 +15,7 @@ public class Player {
     protected boolean isAlive;
     private int maximumHealth;
 
-    public static Player player1 = new Player("AAA", 1, 10, 2, 0, 10);
+    public static Player player1 = new Player("AAA", 1, 100, 2, 0, 10);
 
     public Player() {
 //        this("AAA", 1, 10, 2, 0);
@@ -94,7 +94,7 @@ public class Player {
 
             System.out.println("***LEVEL UP*** \n" +
                     "You're lvl: " + getLevel() +
-                    " need " + (getXp() - xpToLeveling) + " to next level");
+                    " need " + ( xpToLeveling - getXp()) + " to next level");
         }
 
 
@@ -105,7 +105,7 @@ public class Player {
 
         this.level += level;
         this.maximumHealth += 1;
-        if (level % 2 == 0) {
+        if (this.level % 2 == 0) {
             this.damage += 1;
         }
 
@@ -115,6 +115,7 @@ public class Player {
      */
     public void tookDamage(int damageTaken){
         int newHealth = getHealth() - damageTaken;
+        System.out.println(getName() + " took " + damageTaken + " damage!");
         if(newHealth <= 0) {
             isAlive = false;
             System.out.println(getName() + " DIED!");
@@ -137,6 +138,10 @@ public class Player {
         }
         setHealth(newHealth);
 
+    }
+    public int attack(){
+        System.out.println(name + " Attacks!!!");
+        return getDamage();
     }
 }
 
