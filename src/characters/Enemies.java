@@ -1,5 +1,12 @@
 package characters;
 
+import database.GameItems;
+import items.HealingPotions;
+import items.ItemDrop;
+import items.Items;
+import items.OffensePotions;
+import utils.Utils;
+
 public class Enemies {
     private String enemyType;
     private int health;
@@ -60,4 +67,39 @@ public class Enemies {
         setHealth(newHealth);
     }
 
+}
+
+class  Slime extends Enemies {
+
+    private Items item;
+
+    public Slime(String enemyType, int health, int attackDamage, int xp, Items item) {
+        super(enemyType, health, attackDamage, xp);
+        this.item = item;
+    }
+
+    public int Attack(){
+        return getAttackDamage();
+    }
+
+    public int specialAttack(){
+        return Math.round(getAttackDamage() * (float) 1.5);
+    }
+
+    public void dropItem(){
+        ItemDrop.dropRandomItem(item, 0.8);
+    }
+
+
+
+}
+
+class Goblin extends Enemies {
+    public Goblin(String enemyType, int health, int attackDamage, int xp) {
+        super(enemyType, health, attackDamage, xp);
+    }
+
+    public void goblinMagic(){
+
+    }
 }
