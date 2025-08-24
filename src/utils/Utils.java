@@ -1,5 +1,6 @@
 package utils;
 
+import characters.CombatGroup;
 import characters.Enemies;
 
 import database.GameItems;
@@ -19,19 +20,27 @@ public class Utils {
         //return number;
     }
 
+    public static void dropRandomItem(Items item, double dropRate){
+        if (Utils.RNG(dropRate)){
+            System.out.println("you found :" + item);
+            GameItems.addItem(item, 1);
+        }
+    }
+
 
     public static Enemies enemiesGeneration(int playerLevel, int roomNumber) {
 
+
         if (roomNumber == 10) {
-            return new Enemies("Giant Spider", 12, 4, 150);
+            return new Enemies("Giant Spider", 12, 4, 150, GameItems.hpPotion, 0.9);
         }
 
         if (playerLevel < 3) {
-            return null;
+            return new CombatGroup().slime;
         } else if (playerLevel < 5) {
-            return new Enemies("Skeleton Warrior", 7, 3, 60);
+            return new CombatGroup().skeletonArcher;
         } else {
-            return new Enemies("Skeleton Archer", 4, 4, 70);
+            return new CombatGroup().skeletonArcher;
         }
 
     }
