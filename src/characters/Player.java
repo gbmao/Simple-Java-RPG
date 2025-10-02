@@ -4,6 +4,9 @@ package characters;
 import database.GameItems;
 import items.HealingPotions;
 import items.OffensePotions;
+import locations.Locations;
+
+import static database.GameData.createRoom;
 
 public class Player {
 
@@ -14,6 +17,7 @@ public class Player {
     private int xp;
     protected boolean isAlive;
     private int maximumHealth;
+    private Locations location;
 
     public static Player player1 = new Player("AAA", 1, 100, 2, 0, 10);
 
@@ -29,6 +33,7 @@ public class Player {
         this.xp = xp;
         isAlive = true;
         this.maximumHealth = maximumHealth;
+        location = createRoom();
     }
 
     public int getDamage() {
@@ -143,5 +148,19 @@ public class Player {
         System.out.println(name + " Attacks!!!");
         return getDamage();
     }
+
+    public void goForward(){
+        location.setNext(createRoom());
+        location.getNext().setPrevious(location);
+        location = location.getNext();
+    }
+    public void goBack(){
+        location = location.getPrevious();
+    }
+
+    public  void roomDescription() {
+        System.out.println("You entered an " + location.getName() + location.getSize() + location.getLight());
+    }
+
 }
 

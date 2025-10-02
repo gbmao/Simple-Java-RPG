@@ -5,6 +5,8 @@ public class Locations {
     private String light;
     private String size;
     private static int totalRooms;
+    private Locations next;
+    private Locations previous;
 
     public Locations(String name, String light, String size){
     this.name = name;
@@ -32,6 +34,33 @@ public class Locations {
 
     public static int getTotalRooms() {
         return totalRooms;
+    }
+
+    public void setPrevious(Locations previous) {
+        this.previous = previous;
+    }
+
+    public void setNext(Locations next) {
+        this.next = next;
+    }
+
+    public Locations getNext() {
+        return next;
+    }
+
+    public Locations getPrevious() {
+        return previous;
+    }
+
+    @Override
+    public String toString() {
+        return "Locations{" +
+                "name='" + name + '\'' +
+                ", light='" + light + '\'' +
+                ", size='" + size + '\'' +
+                ", next=" + next +
+                ", previous=" + previous +
+                '}';
     }
 }
 
