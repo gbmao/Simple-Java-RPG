@@ -1,6 +1,6 @@
 Simple Java RPG
 
-Description
+Description:
 Simple RPG game to practice Object-Oriented Programming (OOP) and reinforce my newly learned Java skills.
 
 Features
