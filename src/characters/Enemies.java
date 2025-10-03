@@ -76,19 +76,18 @@ public class Enemies {
         Utils.dropRandomItem(item, dropRate);
 
     }
-    public int whatToDo(){
-        double chance = Math.random();
+//    public int whatToDo(){
+//        double chance = Math.random();
+//
+//        if(chance < 0.6){
+//            return attack();
+//        }else{
+//            return specialAttack();
+//        }
+//    }
 
-        if(chance < 0.6){
-            return attack();
-        }else{
-            return specialAttack();
-        }
-    }
+    public void specialAttack() {
 
-    public int specialAttack() {
-
-        return attack();
     }
 
 
@@ -102,10 +101,10 @@ class Slime extends Enemies {
 
     }
 
-    public int specialAttack() {
-        System.out.println(getEnemyType() + " uses a SPECIAL move!");
-        return Math.round(getAttackDamage() * (float) 1.5);
-    }
+//    public double specialAttack() {
+//        System.out.println(getEnemyType() + " uses a SPECIAL move!");
+//        return Math.round(getAttackDamage() * (float) 1.5);
+//    }
 
 
 
@@ -117,7 +116,7 @@ class Goblin extends Enemies {
         super("Goblin warrior", 14, 4, 60, GameItems.hpPotion, 0.6);
     }
 
-//    public void specialAttack() {
+//    public int specialAttack() {
 //        System.out.println(getEnemyType() + " starts concentration it's force!!!");
 //        setAttackDamage(getAttackDamage() + 1);
 //    }
@@ -130,9 +129,5 @@ class SkeletonArcher extends Enemies {
         super("Skeleton Archer", 10, 5, 100, GameItems.poisonPotion, 0.5);
     }
 
-//    public void specialAttack() {
-//        System.out.println(getEnemyType() + " uses double hit!!!");
-////        attack(Player.player1);
-////        attack(Player.player1);
-//    }
+
 }

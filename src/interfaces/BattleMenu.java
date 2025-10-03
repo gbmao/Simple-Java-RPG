@@ -64,7 +64,7 @@ public class BattleMenu {
         enemies.tookDamage(Player.player1.attack());
         if(!enemies.isAlive()) return true;
 
-        Player.player1.tookDamage(enemies.whatToDo());
+        Player.player1.tookDamage(enemies.attack());
 
         if (!Player.player1.isAlive()) return true;
         return false;

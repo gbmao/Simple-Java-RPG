@@ -20,6 +20,11 @@ public class GameData {
         return "You entered an " + room.getName() + room.getSize() + room.getLight();
     }
 
+    public static Locations createRoom(){
+        return new Locations(name(), light(), size());
+
+    }
+
 
     public static String size() {
 
