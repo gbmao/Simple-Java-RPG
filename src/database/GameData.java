@@ -4,6 +4,7 @@ import characters.Player;
 import items.Items;
 import locations.Locations;
 import utils.Utils;
+import world.GameWorld;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +23,7 @@ public class GameData {
         return "You entered an " + room.getName() + room.getSize() + room.getLight();
     }
 
-    public static Locations createRoom(int p1,int totalRooms ){
+    public static Locations createRoom(int p1, int totalRooms) {
         Locations l = new Locations(name(), light(), size());
         l.setEnemy(enemiesGeneration(p1, totalRooms));
         return l;
@@ -31,7 +32,7 @@ public class GameData {
 
     public static String size() {
 
-        return switch ((int)(Math.random() * 10)) {
+        return switch ((int) (Math.random() * 10)) {
             case 1 -> " big room";
             case 2 -> " small room";
             case 3 -> " strange room";
@@ -41,7 +42,7 @@ public class GameData {
 
     public static String light() {
 
-        return switch ((int)(Math.random() * 10)) {
+        return switch ((int) (Math.random() * 10)) {
             case 1 -> " with the sun light coming from a little window";
             case 2 -> " with a simple torch lighting the place.";
             case 3 -> " with some lifted candles";
@@ -51,7 +52,7 @@ public class GameData {
 
     public static String name() {
 
-        return switch ((int)(Math.random() * 10)) {
+        return switch ((int) (Math.random() * 10)) {
             case 1 -> " strange";
             case 2 -> " mysterious";
             case 3 -> " golden";
@@ -60,11 +61,14 @@ public class GameData {
     }
 
     //place to populate all the input
-    public static List<String> roomChoices() {
+    public static List<String> roomChoices(GameWorld world) {
 
         List<String> initialChoices = new ArrayList<>();
-
-        initialChoices.add("- Attack!  ");
+        if (world.getLocation().roomEnemy().isAlive()) {
+            initialChoices.add("- Attack!  ");
+        } else {
+            initialChoices.add("- Look at dead body(not implemented)");
+        }
         initialChoices.add("- Go forward");
         initialChoices.add("- Go back");
         return initialChoices;

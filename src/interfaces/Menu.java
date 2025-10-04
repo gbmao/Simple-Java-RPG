@@ -16,8 +16,8 @@ public class Menu {
 
         boolean flag = true;
         while (flag) {
-        flag = p1.isAlive();
-        startingMenu(p1, world);
+            startingMenu(p1, world);
+            flag = p1.isAlive();
         }
 
     }
@@ -28,9 +28,14 @@ public class Menu {
 
 
         world.roomDescription();// shows room description
-        System.out.println("Room number: " + world.getLocation().getRoomNumber());
+        //System.out.println("Room number: " + world.getLocation().getRoomNumber());
+        if (!world.getLocation().roomEnemy().isAlive()) {
+            System.out.println("You see an dead body in the ground!");
 
-        System.out.println("You see the enemy");// you see an enemy
+        } else {
+            System.out.println("You see the enemy");// you see an enemy
+
+        }
 
 
 //        System.out.println("1 - Attack!  ");
@@ -38,15 +43,20 @@ public class Menu {
         //TODO add inventory
 
 
-        switch (inputMenu(GameData.roomChoices())) {
+        switch (inputMenu(GameData.roomChoices(world))) {
 
             case 1 -> {
-                System.out.println(BattleMenu.battleStart(p1, world.getLocation()));
+                if (world.getLocation().roomEnemy().isAlive()) {
+                    System.out.println(BattleMenu.battleStart(p1, world.getLocation()));
+                } else {
+                    System.out.println("That's a dead " + world.getLocation().roomEnemy().getEnemyType());
+                }
+
             }
             case 2 -> world.goForward();
             case 3 -> world.goBack();
 
-            }
+        }
     }
 
     /**

@@ -26,13 +26,19 @@ public class BattleMenu {
         } while (!battleIsOver);
 
         battleOver(enemy1, p1);
+        if(p1.isAlive()) {
         GameData.showInventory(GameItems.inventory, p1);
         //Player.player1.addXp(enemy1.getXp());
         p1.addXp(enemy1.getXp());
         return "\n\n You walk away from the dead enemy towards a new room\n\n ";
+
+        } else {
+            return "\n\n --- GAME OVER ---\n";
+        }
     }
 
     public static boolean battleMenu(Enemies enemies, Player p1) {
+
         System.out.println("-".repeat(10));
         System.out.println("You're facing an " + enemies.getEnemyType() + " with " + enemies.getHealth() + " HP");
         //System.out.println("You have : " + Player.player1.getHealth() + " HP");

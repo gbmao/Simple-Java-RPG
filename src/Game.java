@@ -22,30 +22,6 @@ public class Game {
 
 
 
-        // test
-//        GameItems.addItem(GameItems.hpPotion, 5);
-//        GameData.showInventory(GameItems.inventory);
-//        GameItems.addItem(GameItems.hpPotion, 1);
-//        GameItems.addItem(GameItems.poisonPotion, 3);
-//        GameData.showInventory(GameItems.inventory);
-//
-//        GameItems.removeItem(GameItems.hpPotion, 2);
-//        GameItems.removeItem(GameItems.poisonPotion, 5);
-//        GameData.showInventory(GameItems.inventory);
-//
-//        String teste = GameItems.hpPotion.toString();
-//        System.out.println(teste);
-//
-//        System.out.println("total hp: " + Player.player1.getHealth() + " max hp  " + Player.player1.getMaximumHealth());
-//        Player.player1.tookDamage(6);
-//        System.out.println("total hp: " + Player.player1.getHealth() + " max hp  " + Player.player1.getMaximumHealth());
-//        Player.player1.heal(GameItems.hpPotion);
-//        System.out.println("total hp: " + Player.player1.getHealth() + " max hp  " + Player.player1.getMaximumHealth());
-//        Player.player1.heal(GameItems.hpPotion);
-//        Player.player1.heal(GameItems.hpPotion);
-//        System.out.println("total hp: " + Player.player1.getHealth() + " max hp  " + Player.player1.getMaximumHealth());
-
-
     }
 
 }
