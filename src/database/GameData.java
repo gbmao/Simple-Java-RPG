@@ -62,7 +62,8 @@ public class GameData {
         List<String> initialChoices = new ArrayList<>();
 
         initialChoices.add("- Attack!  ");
-        initialChoices.add("- Enter next room");
+        initialChoices.add("- Go forward");
+        initialChoices.add("- Go back");
         return initialChoices;
     }
 

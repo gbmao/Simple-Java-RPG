@@ -1,5 +1,6 @@
 package interfaces;
 
+import characters.Player;
 import database.GameData;
 
 
@@ -10,18 +11,22 @@ import java.util.Scanner;
 public class Menu {
 
 
-    public void menu() {
+    public void menu(Player p1) {
 
-        startingMenu();
+        boolean flag = true;
+        while (flag) {
+        flag = p1.isAlive();
+        startingMenu(p1);
+        }
 
     }
 
     //TODO finish start menu
 
-    public void startingMenu() {
+    public void startingMenu(Player p1) {
 
 
-        System.out.println(GameData.roomDescription());
+        p1.roomDescription();// shows room description
         System.out.println("You see the enemy");// you see an enemy
 
 //        System.out.println("1 - Attack!  ");
@@ -32,11 +37,10 @@ public class Menu {
         switch (inputMenu(GameData.roomChoices())) {
 
             case 1 -> {
-                System.out.println(BattleMenu.battleStart());
-                startingMenu();
+                System.out.println(BattleMenu.battleStart(p1));
             }
-            case 2 -> startingMenu();
-
+            case 2 -> p1.goForward();
+            case 3 -> p1.goBack();
 
             }
     }

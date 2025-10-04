@@ -14,8 +14,9 @@ public class Game {
 //        Utils.initialChoices.add("teste");
         interfaces.Menu menu = new Menu();
 //        Menu menu = new Menu();
-
-        menu.menu();
+        //criar um metodo para criar players
+        Player p1 = new Player();
+        menu.menu(p1);
 
 
 

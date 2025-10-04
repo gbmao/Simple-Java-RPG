@@ -21,8 +21,16 @@ public class Player {
 
     public static Player player1 = new Player("AAA", 1, 100, 2, 0, 10);
 
+    //cria um player
     public Player() {
-//        this("AAA", 1, 10, 2, 0);
+        this.name = "AAA";
+        level = 1;
+        health = 10;
+        damage = 2;
+        xp = 0;
+        isAlive = true;
+        maximumHealth = 10;
+        location = createRoom();
     }
 
     public Player(String name, int level, int health, int damage, int xp, int maximumHealth) {
@@ -99,9 +107,8 @@ public class Player {
 
             System.out.println("***LEVEL UP*** \n" +
                     "You're lvl: " + getLevel() +
-                    " need " + ( xpToLeveling - getXp()) + " to next level");
+                    " need " + (xpToLeveling - getXp()) + " to next level");
         }
-
 
 
     }
@@ -115,50 +122,60 @@ public class Player {
         }
 
     }
-    /**Input the damage took
+
+    /**
+     * Input the damage took
+     *
      * @param damageTaken input any damage to be taken
      */
-    public void tookDamage(int damageTaken){
+    public void tookDamage(int damageTaken) {
         int newHealth = getHealth() - damageTaken;
         System.out.println(getName() + " took " + damageTaken + " damage!");
-        if(newHealth <= 0) {
+        if (newHealth <= 0) {
             isAlive = false;
             System.out.println(getName() + " DIED!");
         }
         setHealth(newHealth);
     }
 
-    public void heal(HealingPotions healingPotions){
+    public void heal(HealingPotions healingPotions) {
 
         int newHp = getHealth() + healingPotions.getAmountHealed();
         setHealth(Math.min(newHp, getMaximumHealth()));
     }
 
-    public void tookDamage(OffensePotions offensePotions){
+    public void tookDamage(OffensePotions offensePotions) {
 
         int newHealth = getHealth() - offensePotions.getDamage();
-        if(newHealth <= 0) {
+        if (newHealth <= 0) {
             isAlive = false;
             System.out.println(getName() + " DIED!");
         }
         setHealth(newHealth);
 
     }
-    public int attack(){
+
+    public int attack() {
         System.out.println(name + " Attacks!!!");
         return getDamage();
     }
 
-    public void goForward(){
+    public void goForward() {
         location.setNext(createRoom());
         location.getNext().setPrevious(location);
         location = location.getNext();
     }
-    public void goBack(){
-        location = location.getPrevious();
+
+    public void goBack() {
+        if (location.getPrevious() == null) {
+            System.out.println("You cant go back");
+        } else {
+            location = location.getPrevious();
+
+        }
     }
 
-    public  void roomDescription() {
+    public void roomDescription() {
         System.out.println("You entered an " + location.getName() + location.getSize() + location.getLight());
     }
 
