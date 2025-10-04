@@ -8,12 +8,13 @@ import utils.Utils;
 
 public class BattleMenu {
 
-    public static String battleStart(Player p1) {
+    public static String battleStart(Player p1, Locations location) {
 
         //iniciate enemies
 
         //TODO atrelar a geraçao de inimigos à room
-        Enemies enemy1 = Utils.enemiesGeneration(p1.getLevel(), Locations.getTotalRooms());
+        //Enemies enemy1 = Utils.enemiesGeneration(p1.getLevel(), Locations.getTotalRooms());
+        Enemies enemy1 = location.roomEnemy();
 //        Enemies enemy1 = Npc.first;
 //        CombatGroup combatGroup = new CombatGroup(true);
         // describe what player see
@@ -25,7 +26,7 @@ public class BattleMenu {
         } while (!battleIsOver);
 
         battleOver(enemy1, p1);
-        GameData.showInventory(GameItems.inventory);
+        GameData.showInventory(GameItems.inventory, p1);
         //Player.player1.addXp(enemy1.getXp());
         p1.addXp(enemy1.getXp());
         return "\n\n You walk away from the dead enemy towards a new room\n\n ";

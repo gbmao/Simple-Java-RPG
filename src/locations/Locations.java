@@ -1,21 +1,31 @@
 package locations;
 
+import characters.Enemies;
+import world.GameWorld;
+
 public class Locations {
     private String name;
     private String light;
     private String size;
-    private static int totalRooms;
+
     private Locations next;
     private Locations previous;
+    private Enemies enemy;
+
+    private int roomNumber;
 
     public Locations(String name, String light, String size){
     this.name = name;
     this.light = light;
     this.size = size;
-    totalRooms++;
+
+    roomNumber = GameWorld.getTotalRooms();
 
     }
 
+    public int getRoomNumber() {
+        return roomNumber;
+    }
     public String getName(){ return name;}
     public String getLight(){return light;}
     public String getSize(){ return size;}
@@ -32,9 +42,9 @@ public class Locations {
         this.size = size;
     }
 
-    public static int getTotalRooms() {
-        return totalRooms;
-    }
+//    public static int getTotalRooms() {
+//        return totalRooms;
+//    }
 
     public void setPrevious(Locations previous) {
         this.previous = previous;
@@ -50,6 +60,13 @@ public class Locations {
 
     public Locations getPrevious() {
         return previous;
+    }
+
+    public void setEnemy(Enemies enemy) {
+        this.enemy = enemy;
+    }
+    public Enemies roomEnemy(){
+        return  enemy;
     }
 
     @Override

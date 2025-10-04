@@ -17,9 +17,8 @@ public class Player {
     private int xp;
     protected boolean isAlive;
     private int maximumHealth;
-    private Locations location;
 
-    public static Player player1 = new Player("AAA", 1, 100, 2, 0, 10);
+    //public static Player player1 = new Player("AAA", 1, 100, 2, 0, 10);
 
     //cria um player
     public Player() {
@@ -30,7 +29,6 @@ public class Player {
         xp = 0;
         isAlive = true;
         maximumHealth = 10;
-        location = createRoom();
     }
 
     public Player(String name, int level, int health, int damage, int xp, int maximumHealth) {
@@ -41,7 +39,6 @@ public class Player {
         this.xp = xp;
         isAlive = true;
         this.maximumHealth = maximumHealth;
-        location = createRoom();
     }
 
     public int getDamage() {
@@ -138,6 +135,8 @@ public class Player {
         setHealth(newHealth);
     }
 
+
+
     public void heal(HealingPotions healingPotions) {
 
         int newHp = getHealth() + healingPotions.getAmountHealed();
@@ -160,24 +159,6 @@ public class Player {
         return getDamage();
     }
 
-    public void goForward() {
-        location.setNext(createRoom());
-        location.getNext().setPrevious(location);
-        location = location.getNext();
-    }
-
-    public void goBack() {
-        if (location.getPrevious() == null) {
-            System.out.println("You cant go back");
-        } else {
-            location = location.getPrevious();
-
-        }
-    }
-
-    public void roomDescription() {
-        System.out.println("You entered an " + location.getName() + location.getSize() + location.getLight());
-    }
 
 }
 

@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import static utils.Utils.enemiesGeneration;
+
 
 public class GameData {
 
@@ -20,9 +22,10 @@ public class GameData {
         return "You entered an " + room.getName() + room.getSize() + room.getLight();
     }
 
-    public static Locations createRoom(){
-        return new Locations(name(), light(), size());
-
+    public static Locations createRoom(int p1,int totalRooms ){
+        Locations l = new Locations(name(), light(), size());
+        l.setEnemy(enemiesGeneration(p1, totalRooms));
+        return l;
     }
 
 
@@ -90,9 +93,9 @@ public class GameData {
         return inventoryChoices;
     }
 
-    public static void showInventory(Map<Items, Integer> map) {
+    public static void showInventory(Map<Items, Integer> map, Player p1) {
         System.out.println("-".repeat(10));
-        System.out.println(Player.player1.getName() + " Inventory ");
+        System.out.println(p1.getName() + " Inventory ");
 
         for (Map.Entry<Items, Integer> entry : map.entrySet()) {
 

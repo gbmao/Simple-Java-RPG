@@ -2,6 +2,7 @@ package interfaces;
 
 import characters.Player;
 import database.GameData;
+import world.GameWorld;
 
 
 import java.util.InputMismatchException;
@@ -11,23 +12,26 @@ import java.util.Scanner;
 public class Menu {
 
 
-    public void menu(Player p1) {
+    public void menu(Player p1, GameWorld world) {
 
         boolean flag = true;
         while (flag) {
         flag = p1.isAlive();
-        startingMenu(p1);
+        startingMenu(p1, world);
         }
 
     }
 
     //TODO finish start menu
 
-    public void startingMenu(Player p1) {
+    public void startingMenu(Player p1, GameWorld world) {
 
 
-        p1.roomDescription();// shows room description
+        world.roomDescription();// shows room description
+        System.out.println("Room number: " + world.getLocation().getRoomNumber());
+
         System.out.println("You see the enemy");// you see an enemy
+
 
 //        System.out.println("1 - Attack!  ");
 //        System.out.println("2 - Enter next room");
@@ -37,10 +41,10 @@ public class Menu {
         switch (inputMenu(GameData.roomChoices())) {
 
             case 1 -> {
-                System.out.println(BattleMenu.battleStart(p1));
+                System.out.println(BattleMenu.battleStart(p1, world.getLocation()));
             }
-            case 2 -> p1.goForward();
-            case 3 -> p1.goBack();
+            case 2 -> world.goForward();
+            case 3 -> world.goBack();
 
             }
     }
