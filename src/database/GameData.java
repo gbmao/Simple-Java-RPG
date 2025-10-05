@@ -71,6 +71,7 @@ public class GameData {
         }
         initialChoices.add("- Go forward");
         initialChoices.add("- Go back");
+        initialChoices.add("- Open inventory");
         return initialChoices;
     }
 
@@ -85,7 +86,7 @@ public class GameData {
         return battleChoices;
     }
 
-    public static List<String> InventoryChoices(Map<Items, Integer> map) {
+    public static List<String> inventoryChoices(Map<Items, Integer> map) {
 
         String item = "";
 
@@ -101,11 +102,17 @@ public class GameData {
         System.out.println("-".repeat(10));
         System.out.println(p1.getName() + " Inventory ");
 
-        for (Map.Entry<Items, Integer> entry : map.entrySet()) {
+        if (map.isEmpty()) {
+            System.out.println("Inventory is empty...");
+        } else {
+            for (Map.Entry<Items, Integer> entry : map.entrySet()) {
 
-            System.out.println(entry.getKey().getName() + " x" + entry.getValue());
+                System.out.println(entry.getKey().getName() + " x" + entry.getValue());
+            }
+            System.out.println("-".repeat(10));
+
         }
-        System.out.println("-".repeat(10));
+
     }
 
 }

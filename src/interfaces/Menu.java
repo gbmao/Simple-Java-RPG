@@ -2,6 +2,7 @@ package interfaces;
 
 import characters.Player;
 import database.GameData;
+import database.GameItems;
 import world.GameWorld;
 
 
@@ -55,6 +56,7 @@ public class Menu {
             }
             case 2 -> world.goForward();
             case 3 -> world.goBack();
+            case 4 -> InventoryMenu.inventoryMenu();
 
         }
     }

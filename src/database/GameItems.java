@@ -14,7 +14,8 @@ public class GameItems {
 
 
     //    public static List<Items> inventory = new ArrayList<>();
-    public static Map<Items, Integer> inventory = new HashMap<>();
+
+    public static Map<Items, Integer> inventory = new HashMap<>();// create inventory here?
 
     public static void addItem(Items item, int amount) {
 
@@ -33,5 +34,10 @@ public class GameItems {
             inventory.remove(item);
         }
 
+    }
+
+    public static void showInventory(){
+
+        inventory.forEach((items, integer) -> System.out.println("Item: " + items + " Total: " + integer));
     }
 }
