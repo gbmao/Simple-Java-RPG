@@ -1,5 +1,7 @@
 package inventory;
 
+import java.util.List;
+
 import static database.GameItems.hpPotion;
 import static database.GameItems.poisonPotion;
 
@@ -22,6 +24,8 @@ public class Teste {
         bag.useItem(hpPotion);
        // bag.useItem(hpPotion);
         bag.showInventory();
+
+        System.out.println();
 
     }
 }

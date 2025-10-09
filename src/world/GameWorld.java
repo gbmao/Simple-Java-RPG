@@ -7,13 +7,14 @@ import static database.GameData.createRoom;
 
 public class GameWorld {
     private Player player;
-    private Locations location;
+    //private Locations location;
     private static int totalRooms;
 
 
     public GameWorld(Player player) {
         this.player = player;
-        this.location = createRoom(player.getLevel(), totalRooms);
+//        this.location = createRoom(player.getLevel(), totalRooms);
+        player.setLocation(createRoom(player.getLevel(), totalRooms));
     }
 
     public static int getTotalRooms() {
@@ -22,27 +23,37 @@ public class GameWorld {
     }
 
     public Locations getLocation() {
-        return location;
+        return player.getLocation();
     }
 
     public void goForward() {
-        location.setNext(createRoom(player.getLevel(), totalRooms ));
-        location.getNext().setPrevious(location);
-        location = location.getNext();
+
+        if (player.getLocation().getNext() == null) {
+
+        player.getLocation().setNext(createRoom(player.getLevel(), totalRooms));
+        player.getLocation().getNext().setPrevious(player.getLocation());
+        }
+//        location = location.getNext();
+        player.setLocation(player.getLocation().getNext());
     }
 
     public void goBack() {
-        if (location.getPrevious() == null) {
+        if (player.getLocation().getPrevious() == null) {
             System.out.println("You cant go back");
         } else {
-            location = location.getPrevious();
+//            location = location.getPrevious();
+            player.setLocation(player.getLocation().getPrevious());
 
         }
     }
 
-    public void roomDescription(){
-        System.out.println("You are in a " + location.getName() + location.getSize() + location.getLight());
-    }
+//    public void roomDescription() {
+//        System.out.println("You are in a " + location.getName() + location.getSize() + location.getLight());
+//    }
 
+    public void roomDescription() {
+        System.out.println(player.getLocation().getRoomNumber());
+        System.out.println("You are in a " + player.getLocation().getName() + player.getLocation().getSize() + player.getLocation().getLight());
+    }
 
 }

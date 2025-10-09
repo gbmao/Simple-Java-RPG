@@ -17,6 +17,7 @@ public class Player {
     private int xp;
     protected boolean isAlive;
     private int maximumHealth;
+    private Locations location;
 
     //public static Player player1 = new Player("AAA", 1, 100, 2, 0, 10);
 
@@ -159,6 +160,12 @@ public class Player {
         return getDamage();
     }
 
+    public Locations getLocation() {
+        return location;
+    }
 
+    public void setLocation(Locations location) {
+        this.location = location;
+    }
 }
 

@@ -12,7 +12,7 @@ public class BattleMenu {
 
         //iniciate enemies
 
-        //TODO atrelar a geraçao de inimigos à room
+
         //Enemies enemy1 = Utils.enemiesGeneration(p1.getLevel(), Locations.getTotalRooms());
         Enemies enemy1 = location.roomEnemy();
 //        Enemies enemy1 = Npc.first;
