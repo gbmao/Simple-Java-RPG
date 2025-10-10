@@ -1,4 +1,5 @@
 package interfaces;
+
 import characters.Enemies;
 import characters.Player;
 import database.GameData;
@@ -21,23 +22,23 @@ public class BattleMenu {
         // call for a BattleMenu( with options)
         boolean battleIsOver = false;
         do {
-           battleIsOver = battleMenu(enemy1, p1);
+//           battleIsOver = battleMenu(enemy1, p1);
 
         } while (!battleIsOver);
 
         battleOver(enemy1, p1);
-        if(p1.isAlive()) {
-        GameData.showInventory(GameItems.inventory, p1);
-        //Player.player1.addXp(enemy1.getXp());
-        p1.addXp(enemy1.getXp());
-        return "\n\n You walk away from the dead enemy towards a new room\n\n ";
+        if (p1.isAlive()) {
+            GameData.showInventory(GameItems.inventory, p1);
+            //Player.player1.addXp(enemy1.getXp());
+            p1.addXp(enemy1.getXp());
+            return "\n\n You walk away from the dead enemy towards a new room\n\n ";
 
         } else {
             return "\n\n --- GAME OVER ---\n";
         }
     }
 
-    public static boolean battleMenu(Enemies enemies, Player p1) {
+    public static int battleMenu(Enemies enemies, Player p1) {
 
         System.out.println("-".repeat(10));
         System.out.println("You're facing an " + enemies.getEnemyType() + " with " + enemies.getHealth() + " HP");
@@ -46,33 +47,33 @@ public class BattleMenu {
         System.out.println("What you want to do?\n");
 
 
+        return Menu.inputMenu(GameData.battleChoices());
 
-
-        switch (Menu.inputMenu(GameData.battleChoices())) {
-            case 1: return attackTurn(enemies, p1);
-
-            case 2:
-                System.out.println("2.Magic(not implemented)");
-                break;
-            case 3:
-                System.out.println("3.Use Item(not implemented");
-                break;
-            case 4:
-                System.out.println("4.RUN(not implemented)");
-                break;
-            default:
-                System.out.println("WTF");
-                break;
-        }
-
-        return false;
-        //enemy attacks
+//        switch (Menu.inputMenu(GameData.battleChoices())) {
+//            case 1: return attackTurn(enemies, p1);
+//
+//            case 2:
+//                System.out.println("2.Magic(not implemented)");
+//                break;
+//            case 3:
+//                System.out.println("3.Use Item(not implemented");
+//                break;
+//            case 4:
+//                System.out.println("4.RUN(not implemented)");
+//                break;
+//            default:
+//                System.out.println("WTF");
+//                break;
     }
+
+//        return false;
+    //enemy attacks
+
     //TODO deixar apenas as mensagens aqui, passar a logica para um local propio da batalha
-    public static boolean attackTurn(Enemies enemies, Player p1){
+    public static boolean attackTurn(Enemies enemies, Player p1) {
 
         enemies.tookDamage(p1.attack());
-        if(!enemies.isAlive()) return true;
+        if (!enemies.isAlive()) return true;
 
         p1.tookDamage(enemies.attack());
 
@@ -80,7 +81,7 @@ public class BattleMenu {
         return false;
     }
 
-    public static void battleOver(Enemies enemies, Player p1){
+    public static void battleOver(Enemies enemies, Player p1) {
 
         System.out.println("\nThe battle is over!");
         if (!enemies.isAlive()) {
@@ -96,8 +97,10 @@ public class BattleMenu {
         }
 
     }
-
-
-
-
 }
+
+
+
+
+
+

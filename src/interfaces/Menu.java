@@ -1,5 +1,6 @@
 package interfaces;
 
+import battle.BattleManager;
 import characters.Player;
 import database.GameData;
 import database.GameItems;
@@ -48,7 +49,12 @@ public class Menu {
 
             case 1 -> {
                 if (world.getLocation().roomEnemy().isAlive()) {
-                    System.out.println(BattleMenu.battleStart(p1, world.getLocation()));
+//                    System.out.println(BattleMenu.battleStart(p1, world.getLocation()));
+
+                    //create battle
+                    BattleManager battle = new BattleManager(p1,p1.getLocation().roomEnemy());
+                    battle.battleStart();
+
                 } else {
                     System.out.println("That's a dead " + world.getLocation().roomEnemy().getEnemyType());
                 }
