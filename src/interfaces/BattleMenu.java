@@ -38,6 +38,14 @@ public class BattleMenu {
         }
     }
 
+    public static void deathMessage(String name){
+        System.out.println(name + " DIED!");
+    }
+
+    public static void damageMessage(String name, int damage){
+        System.out.println(name + " took " + damage + " damage!");
+    }
+
     public static int battleMenu(Enemies enemies, Player p1) {
 
         System.out.println("-".repeat(10));

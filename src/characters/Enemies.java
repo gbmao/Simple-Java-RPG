@@ -64,10 +64,10 @@ public class Enemies {
 
     public void tookDamage(int damageTaken) {
         int newHealth = getHealth() - damageTaken;
-        System.out.println(getEnemyType() + " took " + damageTaken + " damage!");
+//        System.out.println(getEnemyType() + " took " + damageTaken + " damage!");
         if (newHealth <= 0) {
             isAlive = false;
-            System.out.println(getEnemyType() + " DIED!");
+//            System.out.println(getEnemyType() + " DIED!");
         }
         setHealth(newHealth);
     }

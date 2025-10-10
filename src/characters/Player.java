@@ -128,10 +128,10 @@ public class Player {
      */
     public void tookDamage(int damageTaken) {
         int newHealth = getHealth() - damageTaken;
-        System.out.println(getName() + " took " + damageTaken + " damage!");
+//        System.out.println(getName() + " took " + damageTaken + " damage!");
         if (newHealth <= 0) {
             isAlive = false;
-            System.out.println(getName() + " DIED!");
+//            System.out.println(getName() + " DIED!");
         }
         setHealth(newHealth);
     }
