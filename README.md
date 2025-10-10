@@ -1,28 +1,60 @@
-Simple Java RPG
+🗡️ Simple Java RPG
 
-Description:
-Simple RPG game to practice Object-Oriented Programming (OOP) and reinforce my newly learned Java skills.
+A simple console-based RPG built to practice Object-Oriented Programming (OOP) concepts in Java — featuring exploration, battles, and inventory management.
 
-Features
+🎯 Goal
 
-Player can explore rooms with different descriptions.
+This project was created to reinforce my understanding of core Java concepts such as:
 
-Simple combat system with enemies.
+Classes and objects
 
-Inventory management for items like potions.
+Inheritance and polymorphism
 
-Health, damage, and experience tracking.
+Encapsulation and abstraction
 
-How to Run
+Exception handling and clean code design
+
+⚙️ Features
+
+✅ Explore interconnected rooms, each with unique descriptions
+⚔️ Battle simple enemies in turn-based combat
+🎒 Manage an inventory with usable items (like potions)
+❤️ Track player stats — health, damage, experience, and level
+🔄 Progress through rooms and encounters dynamically
+
+🚀 How to Run
 
 Clone the repository:
-
+```bash
 git clone https://github.com/gbmao/Simple-Java-RPG
+```
 
+Open the project in your favorite Java IDE (IntelliJ IDEA, VS Code, or Eclipse).
 
-Open the project in your favorite Java IDE (IntelliJ, VS Code, Eclipse).
+Run the Game class to start playing.
 
-Run the Main class to start the game.
+🧩 Structure Overview
+```bash
+Simple-Java-RPG/
+├── characters/      # Player and enemy classes
+├── world/           # World and room navigation
+├── battle/          # Battle system logic
+├── items/           # Inventory and item definitions
+├── interfaces/      # Menus and user interaction
+└── Game.java        # Entry point
+````
+🧠 Future Improvements
 
-Goal
-Practice Java concepts like classes, inheritance, encapsulation, and methods.
+Add different enemy types and skills
+
+Introduce weapon and armor systems
+
+Implement save/load functionality
+
+Add ASCII art and better text UI
+
+🪄 Author
+
+Gabriel Machado de Oliveira
+💻 Learning Java, C#, and backend development
+🐈 Cat companion: Boris
