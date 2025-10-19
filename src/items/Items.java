@@ -10,10 +10,15 @@ public class Items {
         this.description = description;
     }
 
+    public void manageItem(){
+
+    }
+
     //getters
 
 
     public String getName() {
+
         return name;
     }
 
@@ -34,8 +39,7 @@ public class Items {
 
     @Override
     public String toString() {
-        return  name +
-                " : " + description;
+        return  name;
     }
 }
 

@@ -38,6 +38,6 @@ public class GameItems {
 
     public static void showInventory(){
 
-        inventory.forEach((items, integer) -> System.out.println("Item: " + items + " Total: " + integer));
+        inventory.forEach((items, integer) -> System.out.println(items + " " + integer));
     }
 }

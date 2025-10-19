@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class Inventory {
     private int maxSize;
-    private Map<Items, Integer> items;
+    private Map<Items, Integer> items; //TODO change key to be more simple and Integer to be the Item
 
     /**
      * Always start with 10 in size
@@ -54,5 +54,10 @@ public class Inventory {
     public void showInventory(){
         System.out.println("-".repeat(30));
         items.forEach((k,v)-> System.out.println(k +"  total:" + v));
+
+    }
+
+    public void manageInventory() {
+
     }
 }

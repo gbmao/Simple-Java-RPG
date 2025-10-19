@@ -14,8 +14,7 @@ public class HealingPotions extends Items{
 
     @Override
     public String toString() {
-        return super.toString() +
-                " " + amountHealed +" Health points";
+        return super.toString();
     }
 
     public static void usePotions(){
