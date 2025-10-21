@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class Inventory {
     private int maxSize;
-    private Map<Items, Integer> items; //TODO change key to be more simple and Integer to be the Item
+    private Map<Items, Integer> items; //TODO change key to be more simple and Integer to be the  Item
 
     /**
      * Always start with 10 in size
